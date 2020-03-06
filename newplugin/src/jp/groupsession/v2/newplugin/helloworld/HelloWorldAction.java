@@ -3,9 +3,7 @@ package jp.groupsession.v2.newplugin.helloworld;
   import java.sql.Connection;
 
 
-
-
-  import javax.servlet.ServletContext;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +35,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 
   public class HelloWorldAction extends AbstractGsAction {
-//*****************クラス内で使う関数******************
+//*****************クラス内で使う関数******************tttt
 	  public static String ZtoH(String s) {
 		    StringBuffer sb = new StringBuffer(s);
 		    for (int i = 0; i < sb.length(); i++) {
