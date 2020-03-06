@@ -35,7 +35,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 
   public class HelloWorldAction extends AbstractGsAction {
-//*****************クラス内で使う関数******************tttt
+//*****************クラス内で使う関数******************test
 	  public static String ZtoH(String s) {
 		    StringBuffer sb = new StringBuffer(s);
 		    for (int i = 0; i < sb.length(); i++) {
