@@ -31,32 +31,17 @@ tuki = tuki.substring(tuki.length()-2,tuki.length());
   </head>
 
   <body class="body_03">
-  <html:form action="/newplugin/helloworld">
-
 
   <%@ include file="/WEB-INF/plugin/common/jsp/header001.jsp" %>
 
-<html:select property="opt" >
-<html:option value="04">4ŒŽ</html:option>
-<html:option value="05">5ŒŽ</html:option>
-<html:option value="06">6ŒŽ</html:option>
-<html:option value="07">7ŒŽ</html:option>
-<html:option value="08">8ŒŽ</html:option>
-<html:option value="09">9ŒŽ</html:option>
-<html:option value="10">10ŒŽ</html:option>
-<html:option value="11">11ŒŽ</html:option>
-<html:option value="12">12ŒŽ</html:option>
-<html:option value="01">1ŒŽ</html:option>
-<html:option value="02">2ŒŽ</html:option>
-<html:option value="03">3ŒŽ</html:option>
-</html:select>
 
-<html:submit property="submit" value="XV" />
+
+
 <bean:write name="helloworldForm" property="text" filter="false"/>
 
 
   <%@ include file="/WEB-INF/plugin/common/jsp/footer001.jsp" %>
 
-  </html:form>
+
   </body>
   </html:html>
