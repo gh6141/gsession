@@ -43,6 +43,16 @@ public String getText4() {
     return text4__ ;
 }
 
+private String text5__ ="";
+
+public void setText5(String text5) {
+    text5__  = text5;
+}
+
+public String getText5() {
+    return text5__ ;
+}
+
 //*****************List hairetu?
 
 ArrayList<GroupModel> gpList＿ = new ArrayList<GroupModel>();

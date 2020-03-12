@@ -66,14 +66,17 @@ import java.text.*;
 
     	String t3= yoteiForm.getText();
         String t4= yoteiForm.getText4();
+        String t5= yoteiForm.getText5();
 
          String path3="";
          String path4k="";
+         String path5="";
      	String tmp3=null;
 
          try{
         	  path3 = this.getServlet().getServletContext().getRealPath("/WEB-INF/plugin/newplugin/excel_path.txt");
         	  path4k = this.getServlet().getServletContext().getRealPath("/WEB-INF/plugin/newplugin/excel_komoku.txt");
+        	  path5 = this.getServlet().getServletContext().getRealPath("/WEB-INF/plugin/newplugin/gengo.txt");
 
            	 if (t3!=null && t3.length()!=0){
         		 FileWriter filewriter = new FileWriter(path3);
@@ -88,8 +91,14 @@ import java.text.*;
              filewriter2.close();
            	 }
 
+           	 if (t5!=null && t5.length()!=0){
+                 FileWriter filewriter3 = new FileWriter(path5);
+                 filewriter3.write(t5);
+                 filewriter3.close();
+               	 }
+
          }catch(Exception e){
-        	 tmp3="Err:/WEB-INF/plugin/newplugin/excel_path.txtやexcel_komoku.txtがありません";
+        	 tmp3="Err:/WEB-INF/plugin/newplugin/excel_path.txtやexcel_komoku.txt,gengo.txtがありません";
 
 
 
@@ -99,7 +108,7 @@ import java.text.*;
 
 
 
-    	 String str3 = null;String str4k = null;String tmp4k=null;
+    	 String str3 = null;String str4k = null;String tmp4k=null;String tmp5=null;String str5=null;
     	 try{
 
         	 BufferedReader in3=new BufferedReader(new FileReader(path3));
@@ -113,6 +122,12 @@ import java.text.*;
         	 tmp4k=str4k;
         	 }
         	 in4k.close();
+
+        	 BufferedReader in5=new BufferedReader(new FileReader(path5));
+        	 while((str5=in5.readLine())!=null) {
+        	 tmp5=str5;
+        	 }
+        	 in5.close();
     	 }catch(Exception e){
 
     	 }
@@ -120,91 +135,9 @@ import java.text.*;
 
           yoteiForm.setText(tmp3);
           yoteiForm.setText4(tmp4k);
-
-          /**
-
-         // return (map.findForward("sucsess"));
-
-          //db***********************************
-          //HttpServletRequestからHttpSessionを取得します。
-          HttpSession session = req.getSession();
-          //セッション情報からログインユーザの情報を取得します。
-          BaseUserModel usModel =
-             (BaseUserModel) session.getAttribute(GSConst.SESSION_KEY);
-
-          //セッション情報からユーザSIDを取得
-          int usrSid = usModel.getUsrsid();
-          //データアクセスオブジェクトを生成
-
-         List<Integer> usrSidList = new ArrayList<Integer>();
+          yoteiForm.setText5(tmp5);
 
 
-          usrSidList.add(usrSid);
-
-          int schSid=-1;
-          UDate crnt = new UDate();
-
-          int y=crnt.getYear();
-          int m=crnt.getMonth();
-          int yt=0;
-          if (m>=4) {yt=y; }else{ yt=y-1;}
-
-          UDate frDate=new UDate();
-          frDate.setDate( yt, 4, 1);
-
-
-          UDate toDate=new UDate();
-          toDate.setDate(yt+1,3,31);
-
-          int schGrpSid=-1;
-          String copyFlg="0";
-
-
-          SchDataModel sDM= new SchDataModel();
-         // sDM.setScdSid(16);
-          sDM.setScdUsrSid(101);
-          sDM.setScdValue("naiyo");
-          sDM.setScdTitle("title");
-          UDate tD=new UDate();
-          tD.setTimeStamp(yt,7,5,9,10,0);
-          sDM.setScdFrDate(tD);
-          UDate t2D=new UDate();
-          t2D.setTimeStamp(yt,7,5,10,0,0);
-          sDM.setScdToDate(t2D);
-
-          sDM.setScdUsrKbn(0);//0user 1group
-          sDM.setScdDaily(0);//0 jikansitei  1 siteinasi
-
-
-          sDM.setScdGrpSid(-1);
-
-
-          sDM.setScdBgcolor(1);//10水色、
-          sDM.setScdBiko("");
-          sDM.setScdPublic(0);
-          sDM.setScdAuid(101);
-          sDM.setScdAdate( tD);
-          sDM.setScdEuid(101);
-          sDM.setScdEdate( tD);
-          sDM.setSceSid(-1);
-          sDM.setScdEdit(0);
-          sDM.setScdRsSid(-1);
-          sDM.setScdAttendKbn(0);
-          sDM.setScdAttendAns(0);
-          sDM.setScdAttendAuKbn(1);
-
-          sDao.insert(sDM);
-
-          con.commit();
-          List<SchDataModel> schList= sDao.getSchDataEx(usrSidList, schSid, frDate, toDate, schGrpSid) ;
-          //SchDataModel schListx= sDao.getSchData(1) ;
-         // System.out.println(schList.get(0).getScdTitle());
-          *
-          *
-          *
-
-          yoteiForm.setSchList(schList);
- **/
           //*************************************
              return map.getInputForward();
 

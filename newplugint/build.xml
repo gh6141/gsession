@@ -75,7 +75,8 @@ BUILD: Classファイルの作成(コンパイル)
 <javac
 classpathref = "app_classpath"
 destdir = "${PLGIN_CLS.DIR}"
-target = "${BLD.TARGET}"
+source = "11"
+target = "11"
 debug = "${DEBUG}"
 deprecation = "${DEPRECATION}"
 encoding = "${SRC.ENC}">

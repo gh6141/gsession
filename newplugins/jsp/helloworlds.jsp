@@ -8,7 +8,7 @@
 
   <html:html>
   <head>
-  <title>[GroupSession] HelloWorld</title>
+  <title>[GroupSession] Asu Iko Yotei</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel=stylesheet href='../common/css/default.css' type='text/css'>
   </head>

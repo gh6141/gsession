@@ -25,7 +25,7 @@ tuki = tuki.substring(tuki.length()-2,tuki.length());
 
   <html:html>
   <head>
-  <title>Plugin Yotei month</title>
+  <title>Plugin —\’è•\</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel=stylesheet href='../common/css/default.css' type='text/css'>
   </head>
@@ -40,7 +40,7 @@ tuki = tuki.substring(tuki.length()-2,tuki.length());
 <bean:write name="helloworldForm" property="text" filter="false"/>
 
 
-  <%@ include file="/WEB-INF/plugin/common/jsp/footer001.jsp" %>
+<%@ include file="/WEB-INF/plugin/common/jsp/footer001.jsp" %>
 
 
   </body>
