@@ -500,12 +500,24 @@ import java.util.Map;
                     	  List<String> lstKomoku2=gyoStLst(sheet,j-1);
                     	  //System.out.println(lstKomoku1.stream().collect( Collectors.joining(":")));
                     	  //System.out.println(lstKomoku2.stream().collect( Collectors.joining(":")));
-                    	  int minlc=Math.min(lstKomoku1.size(),lstKomoku2.size());
+                    	//  int minlc=Math.min(lstKomoku1.size(),lstKomoku2.size());bug saidaini subeki
+                    	  int minlc=Math.max(lstKomoku1.size(),lstKomoku2.size());
                     	  List<String> lstKomoku=new ArrayList<String>();
                     	  for (int ii=0;ii<minlc;ii++) {
                     		  String awaseS;
-                              String s1=nullShori(lstKomoku1.get(ii));
-                              String s2=nullShori(lstKomoku2.get(ii));
+                    		  String s1="";
+                    		  try {
+                    			  s1=nullShori(lstKomoku1.get(ii));
+                    		  }catch(Exception e1) {
+                    			  s1="";
+                    		  }
+                              String s2="";
+                              try {
+                            	  s2=nullShori(lstKomoku2.get(ii));
+                              }catch(Exception e2) {
+                            	  s2="";
+                              }
+
                               if (s1.length()>0&&s2.length()>0) {
                             	   awaseS=s1+"/"+s2;
                               }else {
@@ -605,11 +617,13 @@ import java.util.Map;
 	            	 List<String> gsl=gyoStLst(wb.getSheetAt(tmpDi.shinf.sheetbango),tmpDi.gyobango);
 		        	 hday=tmpdt.split("/")[1]+"/"+tmpdt.split("/")[2]+"("+gsl.get(1)+")"+tmpDi.chohuku+"<br>";
 
-		        	 int mini=Math.min(gsl.size(), tmpDi.shinf.retumeiLst.size());
+		        	 //int mini=Math.min(gsl.size(), tmpDi.shinf.retumeiLst.size()); //列名の数か、該当行の数の小さいほうにあわせる？　bug
+		        	 int mini=tmpDi.shinf.retumeiLst.size();
 		        	 for (int jj=2;jj<mini;jj++){ //日付、曜日の列はスキップ
 		        		 String stmp=gsl.get(jj).replaceAll(" ","").replaceAll("　","").trim();
 		        		 if (stmp.length()>0) {
-		        			 gyo=gyo+"<b><span style=font-size:80%;>["+tmpDi.shinf.retumeiLst.get(jj)+"]</span></b><span style=font-size:80%;>"+gsl.get(jj).replaceAll("\n","<br>").trim()+"</span><br>";
+		        				 gyo=gyo+"<b><span style=font-size:80%;>["+tmpDi.shinf.retumeiLst.get(jj)+"]</span></b><span style=font-size:80%;>"+gsl.get(jj).replaceAll("\n","<br>").trim()+"</span><br>";
+
 		        		 }
 
 		        	 }
